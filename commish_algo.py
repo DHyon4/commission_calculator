@@ -14,31 +14,46 @@
 class CommmissionCalculator:
     """average contract value x salesperson commission (percentages) = gross commission + base-salary - deductions = net pay"""
 
-    def ACV(self):
-        return 25_000
+    def __init__(self, ACV, annual_salary, deductions, sales_commission_percentage):
+        self.ACV = float(ACV)
+        self.annual_salary = float(annual_salary)
+        self.deductions = 1 - float(deductions)
+        self.sales_commission_percentage = float(sales_commission_percentage)
 
-    def sales_commission_percentage(self):
-        return .10
+        # def ACV(self):
+
+    #     return 25_000
+
+    # def sales_commission_percentage(self):
+    #     return .10
 
     def gross_commission(self):
-        return self.ACV() * self.sales_commission_percentage()
+        return self.ACV * self.sales_commission_percentage
 
     def biweekly_base_salary(self):
-        return (self.annual_salary() / 52) * 2
+        return (self.annual_salary / 52) * 2
 
-    def annual_salary(self):
-        return 100_000
+    # def annual_salary(self):
+    #     return 100_000
 
-    def deductions(self):
-        return .65
+    # def deductions(self):
+    #     return .65
 
     def annual_net_pay(self):
-        return self.gross_commission() + self.annual_salary() * self.deductions()
+        return self.gross_commission() + self.annual_salary * self.deductions
 
     def biweekly_net_pay(self):
-        return self.gross_commission() + self.biweekly_base_salary() * self.deductions()
+        return self.gross_commission() + self.biweekly_base_salary() * self.deductions
 
 
-commission_calculator1 = CommmissionCalculator()  # instantiating means creating an instance of the class
-print(f"your paycheck is ${commission_calculator1.biweekly_net_pay()}")
-print(f"your annual paycheck is ${commission_calculator1.annual_net_pay()}")
+user_ACV = input("enter your annual contract value: ")
+user_annual_salary = input("enter your annual salary: ")
+user_deductions = input("enter your deductions: ")
+user_sales_commission_percentage = input("enter your sales commission percentage: ")
+commission_calculator1 = CommmissionCalculator(ACV=user_ACV,
+                                               annual_salary=user_annual_salary,
+                                               deductions=user_deductions,
+                                               sales_commission_percentage=user_sales_commission_percentage)
+# instantiating means creating an instance of the class
+print(f"your paycheck is ${commission_calculator1.biweekly_net_pay():.2f}")
+print(f"your annual paycheck is ${commission_calculator1.annual_net_pay():.2f}")
