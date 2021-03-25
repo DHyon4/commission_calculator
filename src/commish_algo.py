@@ -10,8 +10,16 @@
 # object-oriented programming is a paradigm based on the concept of objects which consists of data and code, data in the
 # form of fields and code in the form of procedures
 # what are keyword arguments vs positional arguments? Keyword arguments have a default value
+# unit-test: it focuses on the functionality of a single method; solidify behavior against your API
+# regression test: ensures that your code doesn't break; running all your aggregate code
+# tdd (test-driven-development): you write or create a test before writing a single line of code. Basically what do you expect your code to do.
+# test coverage: when you write a unit test you're ensuring a certain aspect of code
+# load, stress,
+# functional testing:
 
-class CommmissionCalculator:
+
+# Get Ed a fucking brew Immediately!
+class CommissionCalculator:
     """average contract value x salesperson commission (percentages) = gross commission + base-salary - deductions = net pay"""
 
     def __init__(self, ACV, annual_salary, deductions, sales_commission_percentage):
@@ -46,14 +54,16 @@ class CommmissionCalculator:
         return self.gross_commission() + self.biweekly_base_salary() * self.deductions
 
 
-user_ACV = input("enter your annual contract value: ")
-user_annual_salary = input("enter your annual salary: ")
-user_deductions = input("enter your deductions: ")
-user_sales_commission_percentage = input("enter your sales commission percentage: ")
-commission_calculator1 = CommmissionCalculator(ACV=user_ACV,
-                                               annual_salary=user_annual_salary,
-                                               deductions=user_deductions,
-                                               sales_commission_percentage=user_sales_commission_percentage)
-# instantiating means creating an instance of the class
-print(f"your paycheck is ${commission_calculator1.biweekly_net_pay():.2f}")
-print(f"your annual paycheck is ${commission_calculator1.annual_net_pay():.2f}")
+if __name__ == '__main__':
+    # Ed's getting a shot and a better for that double "M"
+    user_ACV = input("enter your annual contract value: ")
+    user_annual_salary = input("enter your annual salary: ")
+    user_deductions = input("enter your deductions: ")
+    user_sales_commission_percentage = input("enter your sales commission percentage: ")
+    commission_calculator1 = CommissionCalculator(ACV=user_ACV,
+                                                  annual_salary=user_annual_salary,
+                                                  deductions=user_deductions,
+                                                  sales_commission_percentage=user_sales_commission_percentage)
+    # instantiating means creating an instance of the class
+    print(f"your paycheck is ${commission_calculator1.biweekly_net_pay():.2f}")
+    print(f"your annual paycheck is ${commission_calculator1.annual_net_pay():.2f}")
